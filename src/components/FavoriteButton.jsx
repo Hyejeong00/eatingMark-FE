@@ -3,8 +3,8 @@ import useFavoriteStore from "../store/FavoriteStore";
 import Modal from "./Modal";
 
 export default function FavoriteButton({ place }) {
-    const { favorites, addFavorite, removeFavorite } = useFavoriteStore();
-    const isFavorite = favorites?.some((fav) => fav.id === place.id);
+    const { addFavorite, removeFavorite, getFavoriteById } = useFavoriteStore();
+    const isFavorite = getFavoriteById(place.id);
 
     const [showMoadal, setShowModal] = useState(false) // 모달 상태
 
@@ -17,12 +17,14 @@ export default function FavoriteButton({ place }) {
         }
     }
 
-    const onConfirm = () => {
+    const onConfirm = (e) => {
+        e.stopPropagation();
         removeFavorite(place.id)
         setShowModal(false)
     }
 
-    const onCancel = () => {
+    const onCancel = (e) => {
+        e.stopPropagation();
         setShowModal(false)
     }
 

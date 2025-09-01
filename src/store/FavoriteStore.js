@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { addFavoritePlace, getAllFavoritePlaces, removeFavoritePlace } from '../api/favorite';
 
-const useFavoriteStore = create((set) => ({
+const useFavoriteStore = create((set,get) => ({
     favorites: [],
     isLoading: false,
     error:null,
@@ -40,7 +40,8 @@ const useFavoriteStore = create((set) => ({
             console.error("찜 삭제 실패:", err);
             throw err
         }
-    }
+    },
+    getFavoriteById: (placeId) => get().favorites.some((fav) => fav.id === placeId),
 }));
 
 export default useFavoriteStore;

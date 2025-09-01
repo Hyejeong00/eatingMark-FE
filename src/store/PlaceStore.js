@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { getAllPlaces } from '../api/places';
 
-const usePlaceStore = create((set) => ({
+const usePlaceStore = create((set, get) => ({
   places: [],
   isLoading: false,
   error:null,
@@ -16,6 +16,7 @@ const usePlaceStore = create((set) => ({
       throw err
     }
   },
+  getPlaceById: (placeId) => get().places.find((place) => place.id === placeId)
 }));
 
 export default usePlaceStore;
