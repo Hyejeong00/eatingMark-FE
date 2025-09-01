@@ -1,12 +1,19 @@
 import { Outlet } from "react-router-dom";
-import Header from "./Header";
+import NavBar from "./NavBar";
+import useFavoriteStore from "../store/FavoriteStore";
+import { useEffect } from "react";
 
 function Layout() {
+  const {fetchFavorites} = useFavoriteStore()
+
+    useEffect(() => {
+        fetchFavorites()
+    }, [])
 
   return (
     <>
       <div className="flex flex-col gap-3">
-        <Header />
+        <NavBar />
         <main>
           <Outlet />
         </main>

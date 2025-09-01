@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function Header() {
+export default function NavBar() {
     return (
         <div className="flex justify-center ">
             <button><Link to="/">맛집 목록</Link></button>
