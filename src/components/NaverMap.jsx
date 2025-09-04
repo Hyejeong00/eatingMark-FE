@@ -1,5 +1,7 @@
 import { useEffect } from "react"
 
+const MAP_API = import.meta.env.VITE_NAVER_MAP_CLIENT_ID
+
 export default function NaverMap({ lat, lon, title }) {
     useEffect(() => {
         const id = 'naver-map-sdk';
@@ -42,7 +44,7 @@ export default function NaverMap({ lat, lon, title }) {
 
         const s = document.createElement('script');
             s.id = id;
-            s.src = `https://oapi.map.naver.com/openapi/v3/maps.js?ncpKey=9jpp281j0m`;
+            s.src = `https://oapi.map.naver.com/openapi/v3/maps.js?ncpKey=${MAP_API}`;
             s.async = true;
             s.onload = init;
             document.head.appendChild(s);
