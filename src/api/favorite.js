@@ -1,5 +1,6 @@
 import axios from "axios";
 
+// 상수는 대문자로만 이루어져있음 ,,, 
 const baseUrl = import.meta.env.VITE_API_BASE_URL
 
 export const getAllFavoritePlaces = async () => {

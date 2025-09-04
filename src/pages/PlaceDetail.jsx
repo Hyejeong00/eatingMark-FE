@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom"
 import usePlaceStore from "../store/PlaceStore"
 import NaverMap from "../components/NaverMap"
+import FavoriteButton from "../components/FavoriteButton"
 
 const BASE_URL = import.meta.env.VITE_API_BASE_URL
 
@@ -20,7 +21,11 @@ export default function PlaceDetail() {
                     alt={place.image.alt}
                     className="w-full h-64 object-cover rounded-lg"
                 />
-                <h2 className="text-2xl font-bold text-gray-800">{place.title}</h2>
+                <div className="flex justify-center">
+                    <h2 className="text-2xl font-bold text-gray-800">{place.title}</h2>
+                    <FavoriteButton place={place}/>
+                </div>
+                <p className="text-gray-600">{place.category}</p>
                 <p className="text-gray-600">{place.description}</p>
             </div>
 
