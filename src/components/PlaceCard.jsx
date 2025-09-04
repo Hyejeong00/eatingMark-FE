@@ -1,9 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import FavoriteButton from "./FavoriteButton";
 
+const baseUrl = import.meta.env.VITE_API_BASE_URL;
+
 export default function MarkCard({ place }) {
   const { title, image } = place;
-  const baseUrl = import.meta.env.VITE_API_BASE_URL;
   const navigate = useNavigate();
 
   return (
